@@ -1,6 +1,7 @@
 import MovieCard from '../components/MovieCard.jsx';
 import { movies } from '../data/movies.js';
 
+
 export default function SearchPage() {
   const query = '';
 
