@@ -1,17 +1,18 @@
 import MovieCard from '../components/MovieCard.jsx';
 import { movies } from '../data/movies.js';
+import { useSearchParams } from "react-router-dom";
+
 
 export default function SearchPage() {
-  const query = '';
-
+    const [SearchParams] = useSearchParams()
+  const query = SearchParams.get("q") || ""
   const results = query
-    ? movies.filter((movie) =>
-        `${movie.title} ${movie.originalTitle}`
-          .toLowerCase()
-          .includes(query.toLowerCase())
-      )
-    : [];
+  ? movies.filter((movie) =>
+  `${movie.title} ${movie.originalTitle}`
+  .toLowerCase()
+  .includes(query.toLowerCase())
 
+) : [];
   return (
     <section className="page-shell">
       <span className="eyebrow">SEARCH</span>
